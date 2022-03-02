@@ -1,7 +1,6 @@
-import Tuit from "../components/Tuit";
+import Tuit from "../../components/Tuit/Tuit";
 
-const tuitPage = ({ tuits }) => {
-  console.log(process.env.NEXT_PUBLIC_TUITAH_API);
+const TuitPage = ({ tuits }) => {
   return (
     <>
       <h2>List of tuits</h2>
@@ -19,4 +18,4 @@ export const getServerSideProps = async () => {
     props: tuits,
   };
 };
-export default tuitPage;
+export default TuitPage;
