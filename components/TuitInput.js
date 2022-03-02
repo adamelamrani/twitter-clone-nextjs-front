@@ -22,11 +22,16 @@ const TuitInput = () => {
     await response.json();
   };
 
+  const resetForm = () => {
+    setTuit(blankTuit);
+  };
+
   return (
     <form
-      onSubmit={(event) => {
+      onSubmit={async (event) => {
         event.preventDefault();
-        postTuit(tuit);
+        await postTuit(tuit);
+        resetForm();
       }}
     >
       <label htmlFor="tuit-box">Writte your tuit</label>
@@ -34,6 +39,7 @@ const TuitInput = () => {
         id="text"
         type="text"
         onChange={tuitInput}
+        value={tuit.text}
         maxLength={200}
         placeholder="Say something..."
       />
