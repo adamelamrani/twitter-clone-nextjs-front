@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const Tuit = () => {
   const blankTuit = "";
 
@@ -8,18 +7,23 @@ const Tuit = () => {
 
   const tuitInput = (event) => {
     setTuit({
-      ...tuit, 
+      ...tuit,
       [event.target.id]: event.target.value,
     });
   };
 
   return (
-    <form onSubmit={}>
+    <form>
       <label htmlFor="tuit-box">Writte your tuit</label>
-      <input type="text" onChange={tuitInput} maxLength={200} placeholder="Say something..."/>
+      <input
+        type="text"
+        onChange={tuitInput}
+        maxLength={200}
+        placeholder="Say something..."
+      />
       <button type="submit">Tuit</button>
     </form>
-  )
-}
+  );
+};
 
 export default Tuit;
