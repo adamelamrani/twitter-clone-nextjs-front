@@ -1,6 +1,6 @@
 import Tuit from "../../components/Tuit/Tuit";
 
-const tuitPage = ({ tuits }) => {
+const TuitPage = ({ tuits }) => {
   return (
     <>
       <h2>List of tuits</h2>
@@ -18,4 +18,4 @@ export const getServerSideProps = async () => {
     props: tuits,
   };
 };
-export default tuitPage;
+export default TuitPage;
