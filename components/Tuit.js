@@ -1,28 +1,13 @@
-import React, { useState } from "react";
-
-const Tuit = () => {
-  const blankTuit = "";
-
-  const [tuit, setTuit] = useState(blankTuit);
-
-  const tuitInput = (event) => {
-    setTuit({
-      ...tuit,
-      [event.target.id]: event.target.value,
-    });
-  };
-
+const Tuit = ({ tuit }) => {
   return (
-    <form>
-      <label htmlFor="tuit-box">Writte your tuit</label>
-      <input
-        type="text"
-        onChange={tuitInput}
-        maxLength={200}
-        placeholder="Say something..."
-      />
-      <button type="submit">Tuit</button>
-    </form>
+    <>
+      <h3>Tuit from user nº: {tuit.id}</h3>
+      <p>{tuit.text}</p>
+      <section>
+        <p>{tuit.date}</p>
+        <p>{tuit.likes}</p>
+      </section>
+    </>
   );
 };
 

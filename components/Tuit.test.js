@@ -1,25 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import Tuit from "./Tuit";
 
-describe("Given a Tuit component", () => {
-  describe("When it's rendered", () => {
-    test("Then it should display a form ", () => {
-      render(<Tuit />);
+describe("Give na Tuit component", () => {
+  describe("When it receives a tuit input", () => {
+    test("Then it should render the received text, date and likes", () => {
+      const tuit = {
+        date: "1111-10-11T00:14:44.000Z",
+        likes: 11111,
+        text: '"Hola que tal"',
+        id: "621fb707499281090f4741af",
+      };
 
-      const expectedOutput = screen.getByRole("textbox");
+      render(<Tuit tuit={tuit} />);
+      const expectedText = screen.getByText(tuit.text);
+      const expectedData = screen.getByText(tuit.date);
+      const expectedLikes = screen.getByText(tuit.likes);
 
-      expect(expectedOutput).toBeInTheDocument();
+      expect(expectedText).toBeInTheDocument();
+      expect(expectedData).toBeInTheDocument();
+      expect(expectedLikes).toBeInTheDocument();
     });
-  });
-
-  test("Then it should display a button with text 'tuit'", () => {
-    const text = "Tuit";
-
-    render(<Tuit />);
-
-    const expectedOutput = screen.getByRole("button", { name: text });
-
-    expect(expectedOutput).toBeInTheDocument();
-    expect(expectedOutput.textContent).toBe(text);
   });
 });
