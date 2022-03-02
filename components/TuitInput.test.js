@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
-import Tuit from "./Tuit";
+import TuitInput from "./TuitInput";
 
 describe("Given a Tuit component", () => {
   describe("When it's rendered", () => {
     test("Then it should display a form ", () => {
-      render(<Tuit />);
+      render(<TuitInput />);
 
       const expectedOutput = screen.getByRole("textbox");
 
@@ -15,7 +15,7 @@ describe("Given a Tuit component", () => {
   test("Then it should display a button with text 'tuit'", () => {
     const text = "Tuit";
 
-    render(<Tuit />);
+    render(<TuitInput />);
 
     const expectedOutput = screen.getByRole("button", { name: text });
 
