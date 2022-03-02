@@ -1,6 +1,6 @@
 import Tuit from "../../components/Tuit/Tuit";
 
-const TuitPage = ({ tuits }) => {
+const tuitPage = ({ tuits }) => {
   return (
     <>
       <h2>List of tuits</h2>
