@@ -1,4 +1,4 @@
-import TuitInput from "../components/TuitInput";
+import TuitInput from "../components/TuitInput/TuitInput";
 
 const NewTuit = () => {
   return <TuitInput />;
