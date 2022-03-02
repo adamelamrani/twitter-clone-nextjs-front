@@ -1,7 +1,6 @@
-import Tuit from "../components/Tuit";
+import Tuit from "../../components/Tuit/Tuit";
 
 const tuitPage = ({ tuits }) => {
-  console.log(process.env.NEXT_PUBLIC_TUITAH_API);
   return (
     <>
       <h2>List of tuits</h2>
