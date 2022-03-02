@@ -1,4 +1,5 @@
-import { useState } from "react/cjs/react.production.min"
+import React, { useState } from "react";
+
 
 const Tuit = () => {
   const blankTuit = "";
