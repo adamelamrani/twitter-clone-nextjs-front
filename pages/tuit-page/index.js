@@ -1,4 +1,4 @@
-import Tuit from "../components/Tuit";
+import Tuit from "../../components/Tuit/Tuit";
 
 const tuitPage = ({ tuits }) => {
   return (
@@ -14,9 +14,8 @@ const tuitPage = ({ tuits }) => {
 export const getServerSideProps = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_TUITAH_API}list`);
   const tuits = await response.json();
-
   return {
     props: tuits,
   };
 };
-export default tuitPage;
+export default TuitPage;
