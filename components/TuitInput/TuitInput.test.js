@@ -28,11 +28,9 @@ describe("Given a Tuit component", () => {
     expect(expectedOutput).toBeInTheDocument();
     expect(expectedOutput.textContent).toBe(text);
   });
-});
 
-describe("Given a postTuit function", () => {
-  describe("When fetch with a method post and body has a tuit", () => {
-    test("Then it should call a response json method", () => {
+  describe("When it gets an input in textbox", () => {
+    test("Then it will have holabuenosdias in inputed text", () => {
       const inputedText = "hola buenos días";
 
       render(<TuitInput />);
