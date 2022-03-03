@@ -37,7 +37,7 @@ const Navigation = () => {
           <Link href={"/new-tuit"}>New tuit</Link>
         </StyledItem>
         <StyledItem>
-          <Link href={"/list-tuitero"}>List Contacts</Link>
+          <Link href={"/list-tuitero"}>List Tuiteros</Link>
         </StyledItem>
         <StyledItem>
           <Link href={"/new-tuitero"}>New tuitero</Link>
