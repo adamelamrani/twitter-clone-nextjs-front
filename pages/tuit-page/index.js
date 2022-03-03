@@ -1,9 +1,16 @@
+import styled from "styled-components";
 import Tuit from "../../components/Tuit/Tuit";
 
-const tuitPage = ({ tuits }) => {
+const Title = styled.h2`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TuitPage = ({ tuits }) => {
   return (
     <>
-      <h2>List of tuits</h2>
+      <Title>List of tuits</Title>
       {tuits.map((tuit) => {
         return <Tuit key={tuit.id} tuit={tuit} />;
       })}
