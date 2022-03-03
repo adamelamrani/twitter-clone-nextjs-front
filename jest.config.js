@@ -14,6 +14,7 @@ const customJestConfig = {
     "!coverage/**/*",
     "!jest.config.js",
     "!next.config.js",
+    "!**/_app.js",
   ],
   // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
