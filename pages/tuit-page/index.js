@@ -11,7 +11,7 @@ const TuitPage = ({ tuits }) => {
   return (
     <>
       <Title>List of tuits</Title>
-      {tuits.map((tuit) => {
+      {tuits.reverse().map((tuit) => {
         return <Tuit key={tuit.id} tuit={tuit} />;
       })}
     </>
