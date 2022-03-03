@@ -33,8 +33,6 @@ const addLike = async (tuit) => {
 };
 
 const Tuit = ({ tuit }) => {
-  console.log(tuit);
-
   function timeSince(date) {
     let seconds = Math.floor((new Date() - date) / 1000);
     let interval = seconds / 31536000;
