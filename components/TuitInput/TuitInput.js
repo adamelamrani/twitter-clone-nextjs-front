@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+`;
 
 const TuitInput = () => {
   const blankTuit = { text: "" };
@@ -27,24 +35,29 @@ const TuitInput = () => {
   };
 
   return (
-    <form
-      onSubmit={async (event) => {
-        event.preventDefault();
-        await postTuit(tuit);
-        resetForm();
-      }}
-    >
-      <label htmlFor="tuit-box">Writte your tuit</label>
-      <input
-        id="text"
-        type="text"
-        onChange={tuitInput}
-        value={tuit.text}
-        maxLength={200}
-        placeholder="Say something..."
-      />
-      <button type="submit">Tuit</button>
-    </form>
+    <Section>
+      <form
+        autoComplete="off"
+        onSubmit={async (event) => {
+          event.preventDefault();
+          await postTuit(tuit);
+          resetForm();
+        }}
+      >
+        <label htmlFor="tuit-box">Writte your tuit</label>
+
+        <input
+          id="text"
+          type="text"
+          onChange={tuitInput}
+          value={tuit.text}
+          maxLength={200}
+          placeholder="Say something..."
+        />
+
+        <button type="submit">Tuit</button>
+      </form>
+    </Section>
   );
 };
 
