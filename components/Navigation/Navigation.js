@@ -36,6 +36,12 @@ const Navigation = () => {
         <StyledItem>
           <Link href={"/new-tuit"}>New tuit</Link>
         </StyledItem>
+        <StyledItem>
+          <Link href={"/list-tuitero"}>List Contacts</Link>
+        </StyledItem>
+        <StyledItem>
+          <Link href={"/new-tuitero"}>New tuitero</Link>
+        </StyledItem>
       </StyledList>
     </nav>
   );
