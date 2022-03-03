@@ -33,17 +33,14 @@ describe("Given a Tuit component", () => {
 describe("Given a postTuit function", () => {
   describe("When fetch with a method post and body has a tuit", () => {
     test("Then it should call a response json method", () => {
-      const tuit = {
-        text: "aqui un tuit",
-      };
+      const inputedText = "hola buenos días";
 
       render(<TuitInput />);
 
-      const inputbox = screen.getByRole("textbox", { tuit });
+      const input = screen.getByRole("textbox");
+      userEvent.type(input, inputedText);
 
-      const expectedEvent = userEvent.mockResolvedValue(tuit);
-
-      expect(expectedEvent).toHaveBeenCalled();
+      expect(input).toHaveValue(inputedText);
     });
   });
 });
