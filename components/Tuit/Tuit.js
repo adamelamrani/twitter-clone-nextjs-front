@@ -8,6 +8,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
 `;
 
 const Section = styled.section`
@@ -32,13 +33,39 @@ const addLike = async (tuit) => {
 };
 
 const Tuit = ({ tuit }) => {
+  console.log(tuit);
+
+  function timeSince(date) {
+    let seconds = Math.floor((new Date() - date) / 1000);
+    let interval = seconds / 31536000;
+    if (interval > 1) {
+      return Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+  }
   return (
     <>
       <Card>
         <h3>Tuit from user nº: {tuit.id}</h3>
         <p>{tuit.text}</p>
         <Section>
-          <p>{tuit.date}</p>
+          <p>{timeSince(new Date(tuit.date))} ago</p>
           <p>{tuit.likes}</p>
         </Section>
         <Section>
