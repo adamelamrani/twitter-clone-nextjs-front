@@ -6,6 +6,24 @@ const Section = styled.div`
   flex-direction: column;
   align-content: center;
   align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    width: 70px;
+    height: 30px;
+    background-color: rgb(159 192 214);
+    border-radius: 5px;
+  }
+
+  input {
+    width: 400px;
+    height: 150px;
+    border-radius: 9px;
+  }
 `;
 
 const TuitInput = () => {
