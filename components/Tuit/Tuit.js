@@ -17,6 +17,20 @@ const Section = styled.section`
   align-items: center;
 `;
 
+const addLike = async ({ tuit }) => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_TUITAH_API}${tuit.id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(() => tuit.likes + 1),
+    }
+  );
+  await response.json();
+};
+
 const Tuit = ({ tuit }) => {
   return (
     <>
@@ -28,7 +42,9 @@ const Tuit = ({ tuit }) => {
           <p>{tuit.likes}</p>
         </Section>
         <Section>
-          <button>Like</button>
+          <button type="button" onClick={addLike}>
+            Like
+          </button>
         </Section>
       </Card>
     </>
