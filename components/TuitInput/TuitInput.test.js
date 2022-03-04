@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { server } from "../../mocks/server/server";
+import { server } from "../../mocks/server";
 import TuitInput from "./TuitInput";
 
 beforeAll(() => server.listen());
@@ -29,7 +29,6 @@ describe("Given a Tuit component", () => {
     expect(expectedOutput.textContent).toBe(text);
   });
 });
-
 describe("Given a postTuit function", () => {
   describe("When fetch with a method post and body has a tuit", () => {
     test("Then it should call a response json method", () => {
@@ -41,7 +40,7 @@ describe("Given a postTuit function", () => {
 
       const inputbox = screen.getByRole("textbox", { tuit });
 
-      const expectedEvent = userEvent.mockResolvedValue(tuit);
+      const expectedEvent = userEvent.type(inputbox);
 
       expect(expectedEvent).toHaveBeenCalled();
     });
