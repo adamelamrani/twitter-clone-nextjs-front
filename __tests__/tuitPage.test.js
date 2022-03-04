@@ -1,5 +1,17 @@
+import "whatwg-fetch";
 import { render, screen } from "@testing-library/react";
-import TuitPage from "../pages/tuit-page";
+import TuitPage, { getServerSideProps } from "../pages/tuit-page";
+import { server } from "../mocks/server/server";
+
+// Establish API mocking before all tests.
+beforeAll(() => server.listen());
+
+// Reset any request handlers that we may add during the tests,
+// so they don't affect other tests.
+afterEach(() => server.resetHandlers());
+
+// Clean up after the tests are finished.
+afterAll(() => server.close());
 
 describe("Given a tuitPage page", () => {
   describe("When it's rendered and provided with a list of 5 tuits", () => {
@@ -44,5 +56,21 @@ describe("Given a tuitPage page", () => {
       });
       expectedOutput.forEach((tweet) => expect(tweet).toBeInTheDocument());
     });
+  });
+
+  test("check on good case", async () => {
+    const tweets = [
+      {
+        text: "Bondia3",
+      },
+    ];
+
+    const response = {
+      props: {
+        tweets,
+      },
+    };
+
+    expect(await getServerSideProps()).toEqual(response);
   });
 });

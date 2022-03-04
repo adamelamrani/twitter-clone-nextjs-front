@@ -28,7 +28,7 @@ describe("Given a Tuit component", () => {
     expect(expectedOutput).toBeInTheDocument();
     expect(expectedOutput.textContent).toBe(text);
   });
-});
+
 describe("Given a postTuit function", () => {
   describe("When fetch with a method post and body has a tuit", () => {
     test("Then it should call a response json method", () => {
@@ -41,8 +41,17 @@ describe("Given a postTuit function", () => {
       const inputbox = screen.getByRole("textbox", { tuit });
 
       const expectedEvent = userEvent.type(inputbox);
+    
+  describe("When it gets an input in textbox", () => {
+    test("Then it will have holabuenosdias in inputed text", () => {
+      const inputedText = "hola buenos días";
 
-      expect(expectedEvent).toHaveBeenCalled();
+      render(<TuitInput />);
+
+      const input = screen.getByRole("textbox");
+      userEvent.type(input, inputedText);
+
+      expect(input).toHaveValue(inputedText);
     });
   });
 });
